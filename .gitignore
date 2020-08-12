@@ -6,6 +6,6 @@ __pycache__
 
 keys.js
 node_modules
-/build
+build
 .DS_Store
 npm-debug.log*

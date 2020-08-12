@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  backend:
+    build: 
+      context: ./smart_weather_backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./smart_weather_backend/:/app
+    ports:
+      - 8080:8080
+    environment:
+      - OPENWEATHERMAP_API_KEY=cfdf91e9e6f4a096ff2c475492538c2b
+      - HOST=0.0.0.0
+      - PORT=8080
+      - PYTHONPATH=/app
+    command: python3 /app/smart_weather/app.py
+
+  frontend:
+    build: 
+      context: ./smart_weather_frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./smart_weather_frontend:/app
+    ports:
+      - 3001:3000
+    depends_on:
+      - backend
+    command: npm start
+    stdin_open: true
+
+    
