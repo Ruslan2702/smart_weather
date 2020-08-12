@@ -1,0 +1,78 @@
+swagger: "2.0"
+info:
+    version: "1.0"
+    title: Smart weather service
+    description: Сервис умного прогноза погоды
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /v1/forecast/?:
+      get:
+          operationId: Forecast
+          description: Прогноз погоды
+          parameters:
+            - in: body
+              name: body
+              schema:
+                $ref: '#/definitions/ForecastRequest'
+          responses:
+              200:
+                  description: Ok
+                  schema:
+                    $ref: '#/definitions/ForecastResponse'
+              401:
+                  description: Unauthorized
+
+definitions:
+  ForecastRequest:
+      description: Запрос на получение прогноза погоды
+      type: object
+      additionalProperties: false
+      properties:
+          zone_name:
+            description: Зона для показа прогноза
+            type: string
+      required:
+        - zone_name
+
+  Weather:
+      description: Прогноз погоды
+      type: object
+      additionalProperties: false
+      properties:
+          comment:
+              description: Текстовое описание погоды
+              type: string
+              example: few clouds
+          parameters:
+              description: Погодные условия
+              type: string
+              example: Snow
+          current_temp:
+              description: Текущее значение
+              type: number
+          feels_like:
+              description: Ощущается как
+              type: number
+      required:
+        - comment
+        - current_temp
+        - feels_like
+
+  ForecastResponse:
+      description: Прогноз погоды
+      type: object
+      additionalProperties: false
+      properties:
+          weather:
+              $ref: '#/definitions/Weather'
+          clothing_recommendations:
+              description: Рекомендации по одежде
+              type: string
+      required:
+        - weather
+        - clothing_recommendations
