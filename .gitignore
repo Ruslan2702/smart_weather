@@ -3,3 +3,9 @@ __pycache__
 *pyc
 .cache
 .pytest_cache
+
+keys.js
+/node_modules
+/build
+.DS_Store
+npm-debug.log*
