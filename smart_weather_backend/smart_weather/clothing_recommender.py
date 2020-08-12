@@ -38,11 +38,8 @@ class Handler(AbstractHandler):
     def handle(
             self, forecast_result: OpenMapForecastResponse,
     ) -> str:
-        print('HANDLE HERE :', self, forecast_result.current_temp)
-
         if self._next_handler:
             if self.check_conditions(forecast_result):
-                print('APPEND RECOMMENT', self.recommendation)
                 return self._next_handler.handle(
                     forecast_result,
                 ) + self.recommendation
@@ -66,7 +63,6 @@ class RainHandler(Handler):
     def check_conditions(
             self, forecast_result: OpenMapForecastResponse,
     ) -> bool:
-        print('CHECK HERE :', self, forecast_result.current_temp)
         return forecast_result.group == RainsGroup
 
 
@@ -76,7 +72,6 @@ class WinterJacketHandler(Handler):
     def check_conditions(
             self, forecast_result: OpenMapForecastResponse,
     ) -> bool:
-        print('CHECK HERE :', self, forecast_result.current_temp)
         return forecast_result.current_temp < 10
 
 
@@ -86,7 +81,6 @@ class ThinJacketHandler(Handler):
     def check_conditions(
             self, forecast_result: OpenMapForecastResponse,
     ) -> bool:
-        print('CHECK HERE :', self, forecast_result.current_temp)
         return 10 < forecast_result.current_temp < 20
 
 
@@ -96,7 +90,6 @@ class NoJacketHandler(Handler):
     def check_conditions(
             self, forecast_result: OpenMapForecastResponse,
     ) -> bool:
-        print('CHECK HERE :', self, forecast_result.current_temp)
         return forecast_result.current_temp > 20
 
 
