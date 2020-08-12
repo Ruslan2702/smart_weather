@@ -10,6 +10,8 @@ from smart_weather.api import ping
 
 async def create_app(openweathermap_api_key: str = None):
     app = web.Application()
+    app.add_routes([web.get('/ping', ping.handle)])
+
     app['OPENWEATHERMAP_API_KEY'] = openweathermap_api_key
 
     cors = aiohttp_cors.setup(app, defaults={
