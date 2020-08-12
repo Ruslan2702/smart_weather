@@ -4,7 +4,6 @@ __pycache__
 .cache
 .pytest_cache
 
-keys.js
 node_modules
 build
 .DS_Store
