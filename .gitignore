@@ -5,7 +5,7 @@ __pycache__
 .pytest_cache
 
 keys.js
-/node_modules
+node_modules
 /build
 .DS_Store
 npm-debug.log*
