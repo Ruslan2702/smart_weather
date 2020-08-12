@@ -1,5 +1,0 @@
-[
-  "test_smart_weather/test_forecast.py::test_happy_path",
-  "test_smart_weather/test_forecast.py::test_happy_path[pyloop]",
-  "test_smart_weather/test_forecast.py::test_no_zone_name[pyloop]"
-]

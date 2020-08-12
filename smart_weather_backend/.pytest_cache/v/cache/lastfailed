@@ -1,6 +1,0 @@
-{
-  "smart_weather/test_smart_weather/test_forecast.py": true,
-  "smart_weather/test_smart_weather/test_ping.py": true,
-  "smart_weather/test_smart_weather/test_ping.py::test_ping[pyloop]": true,
-  "test_smart_weather/test_forecast.py::test_happy_path": true
-}
