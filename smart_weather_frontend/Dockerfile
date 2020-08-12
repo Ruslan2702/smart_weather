@@ -4,6 +4,7 @@ RUN npm install -g create-react-app
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
+ENV NODE_PATH=/app/src
 
 COPY package.json ./
 COPY package-lock.json ./
