@@ -3,7 +3,7 @@ import typing as tp
 
 from smart_weather.clients.open_weather_map import OpenMapForecastResponse
 
-RainsGroup: str = 'Rain'
+RAINS_GROUP: str = 'Rain'
 
 class AbstractHandler(ABC):
     """
@@ -63,7 +63,7 @@ class RainHandler(Handler):
     def check_conditions(
             self, forecast_result: OpenMapForecastResponse,
     ) -> bool:
-        return forecast_result.group == RainsGroup
+        return forecast_result.group == RAINS_GROUP
 
 
 class WinterJacketHandler(Handler):
