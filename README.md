@@ -11,7 +11,7 @@
       См. https://github.com/Ruslan2702/smart_weather/blob/master/smart_weather_backend/smart_weather/api/schema/smart_weather.yaml#L13
 
 ## Демонстрация
-
+- **gif**
     ![screencast](smart_weather.gif)
 
 ## Процесс работы программы
