@@ -31,4 +31,4 @@
 1) git clone https://github.com/Ruslan2702/smart_weather.git
 2) cd smart_weather
 3) docker-compose up
-4) Открыть в браузере страницу http://localhost:3000/
+4) Открыть в браузере страницу http://localhost:3001/
