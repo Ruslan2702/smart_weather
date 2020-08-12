@@ -5,6 +5,13 @@ class BaseError(Exception):
     pass
 
 
+class BadRequest(BaseError):
+    """
+    400 from openweathermap api was handled
+    """
+    pass
+
+
 class UnauthorizedError(BaseError):
     """
     401 from openweathermap api was handled
@@ -52,9 +59,10 @@ class OpenWeatherMapClient:
 
     @staticmethod
     async def raise_for_status(response):
-        resp_body = await response.json()
         if response.status == 200:
             return
+        elif response.status == 400:
+            raise BadRequest()
         elif response.status == 401:
             raise UnauthorizedError()
         elif response.status == 404:

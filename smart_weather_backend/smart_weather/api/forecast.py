@@ -27,6 +27,14 @@ async def fetch_weather_forecast(
 ) -> tp.Optional[open_weather_map.OpenMapForecastResponse]:
     try:
         return await open_weather_map_client.forecast(zone_name)
+    except open_weather_map.BadRequest:
+        raise web.HTTPUnauthorized(
+           text=json.dumps({
+                'code': 'Bad Request',
+                'message': 'Zone name is empty',
+            }),
+           content_type='application/json',
+        )
     except open_weather_map.UnauthorizedError:
         raise web.HTTPUnauthorized(
            text=json.dumps({

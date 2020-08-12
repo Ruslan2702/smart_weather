@@ -5,6 +5,7 @@ from smart_weather.clients.open_weather_map import OpenMapForecastResponse
 
 RAINS_GROUP: str = 'Rain'
 
+
 class AbstractHandler(ABC):
     """
     The chain handler (Chain of responsibilities pattern)

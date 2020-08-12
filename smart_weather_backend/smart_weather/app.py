@@ -2,6 +2,7 @@ import os
 
 from aiohttp import web
 import asyncio
+import aiohttp_cors
 
 from smart_weather.api import forecast
 from smart_weather.api import ping
@@ -9,12 +10,22 @@ from smart_weather.api import ping
 
 async def create_app(openweathermap_api_key: str = None):
     app = web.Application()
-    app.add_routes([
-        web.get('/ping', ping.handle),
-        web.post('/v1/forecast{slash:/?}', forecast.handle),
-    ])
+    # app.add_routes([
+    #     web.get('/ping', ping.handle),
+    #     web.post('/v1/forecast{slash:/?}', forecast.handle),
+    # ])
 
     app['OPENWEATHERMAP_API_KEY'] = openweathermap_api_key
+
+    cors = aiohttp_cors.setup(app, defaults={
+        "*": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+        )
+    })
+    resource = cors.add(app.router.add_resource('/v1/forecast{slash:/?}'))
+    cors.add(resource.add_route("POST", forecast.handle))
 
     return app
 
