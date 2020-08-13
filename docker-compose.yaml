@@ -5,8 +5,6 @@ services:
     build: 
       context: ./smart_weather_backend
       dockerfile: Dockerfile
-    volumes:
-      - ./smart_weather_backend/:/app
     ports:
       - 8080:8080
     environment:
@@ -20,13 +18,11 @@ services:
     build: 
       context: ./smart_weather_frontend
       dockerfile: Dockerfile
-    volumes:
-      - ./smart_weather_frontend:/app
     ports:
       - 3001:3000
     depends_on:
       - backend
     command: npm start
     stdin_open: true
-
+    tty: true
     
