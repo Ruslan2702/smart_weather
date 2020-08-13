@@ -10,7 +10,7 @@ services:
     environment:
       - OPENWEATHERMAP_API_KEY=cfdf91e9e6f4a096ff2c475492538c2b
       - HOST=0.0.0.0
-      - PORT=8080
+      - PORT=80
       - PYTHONPATH=/app
     command: python3 /app/smart_weather/app.py
 

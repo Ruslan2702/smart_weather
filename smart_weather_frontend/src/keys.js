@@ -1,3 +1,3 @@
 module.exports = {
-  BASE_URL: "backend:8080/v1/forecast",
+  BASE_URL: "backend/v1/forecast",
 };

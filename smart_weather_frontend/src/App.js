@@ -15,7 +15,11 @@ function App() {
         body: JSON.stringify({
           zone_name: query
         }),
-        headers: {'Content-Type':'application/json'},
+        headers: {
+          'Content-Type':'application/json',
+          'Origin': 'http://smartweather.info'
+        },
+        mode: 'no-cors'
       });
       let json_resp = await response.json()
       if (response.ok) {

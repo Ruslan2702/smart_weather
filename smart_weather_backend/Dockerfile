@@ -4,4 +4,4 @@ ADD . /app
 WORKDIR /app
 
 RUN pip3 install -r /app/requirements.txt
-EXPOSE 8080
+EXPOSE 80
